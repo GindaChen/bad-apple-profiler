@@ -1,9 +1,9 @@
 # Bad Apple!! in a GPU profiler
 
 Bad Apple!! played inside a profiler timeline. Each pixel row is a thread track, time is
-the x axis, and every run of black pixels is one slice. Playback is 30 fps in
-[Perfetto](https://ui.perfetto.dev), and the same picture can also be opened in NVIDIA
-Nsight Systems.
+the x axis, and each run of pixels is one slice. Play the animation at 30 fps in
+[Perfetto](https://ui.perfetto.dev) or [AWS Neuron Explorer](#aws-neuron-explorer),
+or inspect the trace in NVIDIA Nsight Systems.
 
 No GPU and no profiling run are needed. The traces are written directly, with exact
 timestamps.
@@ -16,11 +16,20 @@ row 01   ██████████████████                �
 
 ## AWS Neuron Explorer
 
-The [Neuron Explorer demo](neuron/README.md) imports a synthetic trace and
-plays it with the original soundtrack at 512×384 and 30 fps. It runs in
-Docker on a Mac without Trainium hardware.
+The Neuron Explorer demo imports a synthetic trace and plays it with the original
+soundtrack at 512×384 and 30 fps. It runs in Docker on a Mac without Trainium hardware.
+With Docker, `uv`, and FFmpeg installed, run:
 
-## Quick start
+```bash
+uv run --script neuron/demo.py install
+uv run --script neuron/demo.py prepare video/bad_apple.mp4 --audio video/bad_apple_audio.m4a
+uv run --script neuron/demo.py serve
+```
+
+Open the URL printed by `serve` and click **Play with music**. The [Neuron Explorer
+guide](neuron/README.md) covers media inputs, a test clip, and inspecting the imported trace.
+
+## Perfetto and Nsight Systems quick start
 
 You need Python 3.9+ (standard library only), `ffmpeg`, and Google Chrome. This repo
 contains no video or audio, so bring your own copy of the video.
@@ -106,6 +115,6 @@ Linux install locations. If it isn't found, the `.nsys-rep` step is skipped.
 
 Bad Apple!! is from the Touhou Project by ZUN; the original arrangement is by Alstroemeria
 Records, and the shadow-art PV is by Anira. None of that material is included here. Perfetto is
-by Google, and Nsight Systems is by NVIDIA.
+by Google, Nsight Systems is by NVIDIA, and Neuron Explorer is by AWS.
 
 Code: MIT License.
