@@ -14,6 +14,12 @@ row 01   ██████████████████                �
  ...     |<------- frame 0 ------->|<------- frame 1 ------->|   ← time
 ```
 
+## AWS Neuron Explorer
+
+The [Neuron Explorer demo](neuron/README.md) imports a synthetic trace and
+plays it with the original soundtrack at 512×384 and 30 fps. It runs in
+Docker on a Mac without Trainium hardware.
+
 ## Quick start
 
 You need Python 3.9+ (standard library only), `ffmpeg`, and Google Chrome. This repo
