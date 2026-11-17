@@ -1,0 +1,12 @@
+# media and generated traces (not redistributable / large)
+video/
+out/
+*.mp4
+*.mov
+*.m4a
+*.webm
+# local tooling
+__pycache__/
+.claude/
+codedb.snapshot
+.DS_Store
